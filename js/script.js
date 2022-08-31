@@ -40,10 +40,12 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-pagination',
 	clickable: true,
   },
-   breakpoints: {
+  breakpoints: {
+   1440: {
+    spaceBetween: 50,
+  },
   1600: {
-	  slidesPerView: 4,
-      spaceBetween: 50,
+      slidesPerView: 4,
    }
   }
 });
