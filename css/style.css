@@ -55,6 +55,9 @@ a:active {
 
 html,
 body {
+  height: 100%;
+  min-width: 360px;
+  max-width: 1920px;
   background: #101932;
   font-family: "SF Pro Display", "Arial", sans-serif;
   font-weight: 400;
@@ -123,12 +126,22 @@ button {
   width: 1px !important;
   overflow: hidden;
 }
-
 .wrapper {
-  min-width: 360px;
   max-width: 1920px;
 }
-
+.a {
+  position: relative;
+  top: 0;
+  transition-duration: 0.3s;
+}
+.a:hover {
+  top: -2px;
+  box-shadow: 0 3px 0px #000000;
+}
+.a:active {
+    top: 0px;
+    box-shadow: 0 0px 0px #000000;
+}
 .h2 {
   text-align: center;
   font-weight: 700;
@@ -187,7 +200,6 @@ button {
 .header--bg {
   background: rgba(16, 25, 50, 0.9);
 }
-
 .header__logo img {
   position: relative;
   height: 25px;
@@ -353,6 +365,7 @@ button {
 }
 
 .header__nav-link {
+  position: relative;
   font-weight: 600;
   font-size: 19px;
   line-height: 23px;
@@ -363,7 +376,22 @@ button {
     line-height: 20px;
   }
 }
-
+.header__nav-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #AC1216;
+  transition-duration: 0.3s;
+}
+.header__nav-link:active {
+  color: #AC1216;
+}
+.header__nav-link:hover::before {
+  width: 100%;
+}
 .header__community-link {
   display: block;
   padding: 14px;
@@ -382,14 +410,21 @@ button {
         flex-shrink: 0;
   }
 }
+@media (min-width: 1200px) {
+  .head {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
 
-.head {
+.main__head {
   padding-top: 90px;
   padding-bottom: 15px;
   background: url("../img/bg/head.png") center/cover no-repeat, url("../img/bg/head-0.png") center/cover no-repeat;
 }
 @media (min-width: 992px) {
-  .head {
+  .main__head {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -402,15 +437,21 @@ button {
   }
 }
 @media (min-width: 1200px) {
-  .head {
-    padding-top: 170px;
-    padding-bottom: 130px;
+  .main__head {
+    flex-grow: 1;
+    padding-top: 110px;
+    padding-bottom: 5px;
     background: url("../img/bg/head-big.jpg") center center/cover no-repeat;
   }
 }
 
+.head__wrapper {
+  display: flex;
+  flex-direction: column;
+}
 @media (min-width: 1200px) {
   .head__wrapper {
+    display: block;
     max-width: 700px;
   }
 }
@@ -514,7 +555,6 @@ button {
     line-height: 30px;
   }
 }
-
 .head__more-link {
   display: block;
   min-width: 305px;
@@ -534,8 +574,14 @@ button {
     line-height: 26px;
   }
 }
-
+.head__more-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.head__more-link:active {
+  background: rgba(255, 255, 255, 0.2);
+}
 .head__contact {
+  align-self: center;
   margin: 0 -10px;
   padding: 10px;
   font-weight: 500;
@@ -552,7 +598,6 @@ button {
 }
 @media (min-width: 1200px) {
   .head__contact {
-    max-width: 700px;
     margin: 0;
     font-size: 15px;
     line-height: 18px;
@@ -570,8 +615,8 @@ button {
   .spidershiba-big {
     text-align: center;
     display: block;
-    -ms-flex-preferred-size: 40%;
-        flex-basis: 40%;
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
   }
 }
 .spidershiba-big img {
@@ -686,9 +731,9 @@ button {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
   opacity: 0.4;
-  -webkit-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
 @media (min-width: 992px) {
   .world__partner {
@@ -1433,27 +1478,6 @@ button {
 
 .team__swiper {
   margin: 0 auto;
-  max-width: 360px;
-}
-@media (min-width: 768px) {
-  .team__swiper {
-    max-width: 740px;
-  }
-}
-@media (min-width: 1200px) {
-  .team__swiper {
-    max-width: 1100px;
-  }
-}
-@media (min-width: 1440px) {
-  .team__swiper {
-    max-width: 1150px;
-  }
-}
-@media (min-width: 1600px) {
-  .team__swiper {
-    max-width: none;
-  }
 }
 
 .swiper-wrapper {
